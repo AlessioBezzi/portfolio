@@ -5,6 +5,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { PortfolioContent } from "../../data/portfolioContent";
+import { getPublicAssetUrl } from "../../utils/assets";
 
 export type ContactAction = {
   download?: boolean;
@@ -30,7 +31,7 @@ export function createContactActions(current: PortfolioContent): ContactAction[]
     },
     {
       download: true,
-      href: current.meta.cvHref,
+      href: getPublicAssetUrl(current.meta.cvHref),
       icon: Download,
       label: current.contact.cvLabel,
       meta: "PDF",

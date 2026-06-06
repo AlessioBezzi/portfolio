@@ -11,6 +11,7 @@ import {
   LanguageToggleButton,
   ThemeToggleButton,
 } from "./navigation/PreferenceButtons";
+import { getPublicAssetUrl } from "../utils/assets";
 
 type HeaderProps = {
   activeSection: SectionId;
@@ -45,6 +46,7 @@ export function Header({
 }: HeaderProps) {
   const isCompactHeader = headerCollapsed && !headerExpanded;
   const showCompactHeader = mobileMenuMode || isCompactHeader;
+  const cvHref = getPublicAssetUrl(current.meta.cvHref);
 
   return (
     <header
@@ -94,7 +96,7 @@ export function Header({
               onToggle={onThemeToggle}
               theme={theme}
             />
-            <a className="download-button" href={current.meta.cvHref} download>
+            <a className="download-button" href={cvHref} download>
               <span>{current.contact.cvLabel}</span>
               <ArrowRight size={17} />
             </a>

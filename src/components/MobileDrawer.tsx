@@ -7,6 +7,7 @@ import {
   LanguageToggleButton,
   ThemeToggleButton,
 } from "./navigation/PreferenceButtons";
+import { getPublicAssetUrl } from "../utils/assets";
 
 type MobileDrawerProps = {
   activeSection: SectionId;
@@ -29,6 +30,8 @@ export function MobileDrawer({
   onThemeToggle,
   theme,
 }: MobileDrawerProps) {
+  const cvHref = getPublicAssetUrl(current.meta.cvHref);
+
   return (
     <>
       <button
@@ -74,7 +77,7 @@ export function MobileDrawer({
             showText
             theme={theme}
           />
-          <a className="mobile-action-button" href={current.meta.cvHref} download>
+          <a className="mobile-action-button" href={cvHref} download>
             <Download size={17} />
             <span>{current.contact.cvLabel}</span>
           </a>

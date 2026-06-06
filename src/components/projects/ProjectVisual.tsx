@@ -1,3 +1,5 @@
+import { getPublicAssetUrl } from "../../utils/assets";
+
 type ProjectVisualProps = {
   index: number;
   imageAlt?: string;
@@ -6,7 +8,7 @@ type ProjectVisualProps = {
 
 export function ProjectVisual({ imageAlt, imageSrc, index }: ProjectVisualProps) {
   const visualClass = `project-visual visual-${index}`;
-  const normalizedImageSrc = imageSrc?.trim();
+  const normalizedImageSrc = getPublicAssetUrl(imageSrc);
 
   if (normalizedImageSrc) {
     return (

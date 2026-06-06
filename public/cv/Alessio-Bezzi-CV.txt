@@ -1,3 +1,0 @@
-Alessio Bezzi - CV placeholder
-
-Replace this file with your real CV PDF and update the download link in src/data/portfolioContent.ts.

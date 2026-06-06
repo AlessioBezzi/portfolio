@@ -1,6 +1,7 @@
 import { type MouseEvent, useState } from "react";
 import { motion } from "framer-motion";
 import type { HeroImageCard, PortfolioContent } from "../../data/portfolioContent";
+import { getPublicAssetUrl } from "../../utils/assets";
 import { getHeroCardMotion } from "./heroMotion";
 
 type HeroVisualProps = {
@@ -18,7 +19,7 @@ export function HeroVisual({ current, reducedMotion }: HeroVisualProps) {
 
   const renderImageCard = (id: HeroCardId, className: string) => {
     const image = getImageCard(id);
-    const imageSrc = image?.src.trim();
+    const imageSrc = getPublicAssetUrl(image?.src);
 
     if (!imageSrc) {
       return null;
